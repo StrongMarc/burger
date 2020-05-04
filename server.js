@@ -20,13 +20,11 @@ app.use(express.static("public"));
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-// add developer module
-var orm = require("./config/orm.js");
+// Import routes and give the server access to them.
+var routes = require("./controllers/burgers_controller.js");
 
-orm.selectAll("burgers");
-orm.insertOne("burgers", "Jalapeno Burger", false);
-orm.updateOne("burgers", true, 1);
-orm.selectAll("burgers");
+// http://expressjs.com/en/guide/writing-middleware.html#writing-middleware-for-use-in-express-apps
+app.use(routes);
 
 // Start server so that it can begin listening to client requests.
 app.listen(PORT, function() {
