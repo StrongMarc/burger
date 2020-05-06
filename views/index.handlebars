@@ -18,10 +18,7 @@
         {{#unless devoured}}
       {{!-- <div class="col-md-6 burgerName" --}}
         {{!-- <div class="col-md-4 "> --}}
-          <li>
-            <button type="button" class="col-md-4 btn btn-warning">{{id}} {{burger_name}} </button>
-            <button type="button" class="btn btn-warning btn-sm devourBtn">Devour it!!</button>
-          </li>
+          {{> burgers/burger-block sleep=true}}
         {{/unless}}
         {{!-- </div> --}}
         {{!-- <div class="col-md-2 devourBtn"> --}}

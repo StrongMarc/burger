@@ -10,6 +10,7 @@ CREATE TABLE burgers (
   id INTEGER NOT NULL AUTO_INCREMENT,
   burger_name VARCHAR(30),
   devoured BOOLEAN DEFAULT false,
-  createdAt TIMESTAMP NOT NULL,
+
   PRIMARY KEY (id)
 );
+UPDATE `burgers` SET devoured = true WHERE id = 1
