@@ -1,25 +1,38 @@
-<h2>Burger list</h2>
+{{!-- burger image and header --}}
+<header class="header">
+  <div class="row image">
+    <img src="./assets/img/burgerImage.PNG" alt="burger" >
+  </div>
+  <h1>Eat Da Burger!</h1>
+</header>
 
-  <!-- Bootstrap list group - basic example -->
-  <ul class="list-group">
-    {{#each burgers}}
-      {{#unless devoured}}
-    {{!-- <div class="col-md-6 burgerName" --}}
-      {{!-- <div class="col-md-4 "> --}}
-        <li>
-          <button type="button" class="col-md-5 btn btn-warning">
-            {{id}} {{burger_name}}
-          </button>
-        
-           
-            <button type="button" class="btn btn-warning btn-sm">Devour it!!</button>
+<div class="row">
+  <div class="col-md-1">  
+    </div>
+  <div class="col">
+  <h2>Burger list</h2>
+
+    <!-- Bootstrap list group - basic example -->
+    <ul class="list-group">
+      {{#each burgers}}
+        {{#unless devoured}}
+      {{!-- <div class="col-md-6 burgerName" --}}
+        {{!-- <div class="col-md-4 "> --}}
+          <li>
+            <button type="button" class="col-md-4 btn btn-warning">{{id}} {{burger_name}} </button>
+            <button type="button" class="btn btn-warning btn-sm devourBtn">Devour it!!</button>
           </li>
         {{/unless}}
-      {{!-- </div> --}}
-      {{!-- <div class="col-md-2 devourBtn"> --}}
-        {{!-- <button type="button" class="btn btn-warning btn-sm">Devour it!!</button> --}}
-      {{!-- </div> --}}
-        
-    {{/each}}
-  </ul>
+        {{!-- </div> --}}
+        {{!-- <div class="col-md-2 devourBtn"> --}}
+          {{!-- <button type="button" class="btn btn-warning btn-sm">Devour it!!</button> --}}
+        {{!-- </div> --}}
+          
+      {{/each}}
+    </ul>
+    </div>
+
+    
+</div>
+  
 
