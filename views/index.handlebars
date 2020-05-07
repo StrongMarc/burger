@@ -7,28 +7,32 @@
 </header>
 
 <div class="row">
-  <div class="col-md-1">  
-    </div>
-  <div class="col">
+
+  <div class="col-md-1"> </div>
+
+  <div class="col-md-5">
   <h2>Burger list</h2>
 
     <!-- Bootstrap list group - basic example -->
     <ul class="list-group">
       {{#each burgers}}
         {{#unless devoured}}
-      {{!-- <div class="col-md-6 burgerName" --}}
-        {{!-- <div class="col-md-4 "> --}}
           {{> burgers/burger-block eating=true}}
         {{/unless}}
-        {{!-- </div> --}}
-        {{!-- <div class="col-md-2 devourBtn"> --}}
-          {{!-- <button type="button" class="btn btn-warning btn-sm">Devour it!!</button> --}}
-        {{!-- </div> --}}
-          
       {{/each}}
     </ul>
-    </div>
+  </div>
 
+  <div class="col-md-5">
+    <!-- Bootstrap list group - basic example for devoured burgers-->
+    <ul class="list-group">
+      {{#each burgers}}
+        {{#if devoured}}
+          {{> burgers/burger-block eating=false}}
+        {{/if}}
+      {{/each}}
+    </ul>
+  </div>
     
 </div>
   
