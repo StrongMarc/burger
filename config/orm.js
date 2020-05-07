@@ -18,7 +18,8 @@ var orm = {
         console.log(result);
       });
     },
-    updateOne: function(table, devoured, id) {
+    updateOne: function(table, devoured, id, cb) {
+      console.log(id)
       var queryString = "UPDATE " + table;
 
       queryString += " SET ";
@@ -27,9 +28,10 @@ var orm = {
       queryString += id;
     
       connection.query(
-        queryString, [table, devoured, id], function(err, result) {
+        queryString, [table, devoured, {id}], function(err, result) {
           if (err) throw err;
-          console.log(result);
+          cb(result)
+          console.table(result);
         }
       );
     }
@@ -40,7 +42,7 @@ function objToSql(ob) {
   var arr = [];
 
   // loop through the keys and push the key/value as a string int arr
-  // for (var key in ob) {
+  for (var key in ob) {
     var value = ob[key];
     // check to skip hidden properties
     if (Object.hasOwnProperty.call(ob, key)) {
@@ -51,7 +53,7 @@ function objToSql(ob) {
       // e.g. {name: 'Lana Del Grey'} => ["name='Lana Del Grey'"]
       // e.g. {sleepy: true} => ["sleepy=true"]
       arr.push(key + "=" + value);
-    // }
+    }
   }
 
   // translate array of strings to a single comma-separated string
