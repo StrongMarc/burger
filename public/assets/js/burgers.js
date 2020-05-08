@@ -1,15 +1,17 @@
 $(function() {
-    // Function to update database to change devoured to true
+    // EventHandler to update database to change devoured to true
     $(".devourBtn").on("click", function(event) {
-        var id = $(this).data("id");
-    var burgerGone = $(this).data("burgergone");
+      // id for ajax route
+      var id = $(this).data("id");
+      var burgerGone = $(this).data("burgergone");
 
-    var tasty = {
-      devoured: burgerGone
-    };
-    console.log(id)
-    console.log(burgerGone)
-    console.log(tasty)
+      // object for ajax
+      var tasty = {
+        devoured: burgerGone
+      };
+      console.log(id)  // see browser
+      console.log(burgerGone)
+      console.log(tasty)
     // Send the PUT request.
     $.ajax("/api/burgers/" + id, {
         type: "PUT",
@@ -22,5 +24,32 @@ $(function() {
         }
       );
     });
+
+    // EventHandler to add burger 
+  $("#submitBtn").on("click", function(event) {
+    event.preventDefault();
+    var eat = false;
+
+    // object for ajax
+    var addDaBurger = {
+      // name: "Jalopeno Burger",
+      name: $("#burgerInput").val().trim(),
+      devoured: eat
+    };
+    alert(addDaBurger)
+    console.log(addDaBurger)
+    setTimeout(function(){ alert("Hello"); }, 3000);
+    // Send the POST request.
+    $.ajax("/api/burgers/", {
+      type: "POST",
+      data: addDaBurger
+    }).then(
+      function() {
+        console.log("created new burger");
+        // Reload the page to get the updated list
+        location.reload();
+      }
+    );
+  });
 
 });

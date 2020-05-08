@@ -4,18 +4,23 @@ var connection = require("./connection.js");
 var orm = {
     selectAll: function(tableInput, cb) {
       var queryString = "SELECT * FROM ??";
+
       connection.query(queryString, tableInput, function(err, result) {
-        console.log("orm8")
         if (err) throw err;
           cb(result)
       });
     },
-    insertOne: function(table, name, devoured) {
-      var queryString = "INSERT INTO ?? (burger_name, devoured) VALUES (?, ?)";
+    // insertOne: function(table, name, devoured, cb) {
+    insertOne: function(table, name, cb) {
+      // devoured is default to false, argument not needed
+      // name.toString()
+      // console.log(name)
+      
+      var queryString = "INSERT INTO ?? (burger_name) VALUES (?)";
       console.log(queryString);
-      connection.query(queryString, [table, name, devoured], function(err, result) {
+      connection.query(queryString, [table, name], function(err, result) {
         if (err) throw err;
-        console.log(result);
+          cb(result)
       });
     },
     updateOne: function(table, devoured, id, cb) {

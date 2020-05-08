@@ -13,4 +13,3 @@ CREATE TABLE burgers (
 
   PRIMARY KEY (id)
 );
-UPDATE `burgers` SET devoured = true WHERE id = 1
