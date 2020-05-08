@@ -6,34 +6,55 @@
   <h1>Eat Da Burger!</h1>
 </header>
 
-<div class="row">
+<div class="row justify-content-center">
 
-  <div class="col-md-1"> </div>
+  <div class="col-md-1 "> </div>
 
-  <div class="col-md-5">
-  <h2>Burger list</h2>
-
+  <div class="col-md-5 col-sm-12 ">
+    <h2>Burger list</h2>
+    <hr>
     <!-- Bootstrap list group - basic example -->
-    <ul class="list-group">
-      {{#each burgers}}
-        {{#unless devoured}}
-          {{> burgers/burger-block eating=true}}
-        {{/unless}}
-      {{/each}}
-    </ul>
+    <div class="row listCol">
+      <ul class="list-group">
+        {{#each burgers}}
+          {{#unless devoured}}
+            {{> burgers/burger-block eating=true}}
+          {{/unless}}
+        {{/each}}
+      </ul>
+    </div>
   </div>
 
-  <div class="col-md-5">
+  <div class="col-md-5 col-sm-12">
+    <h2>Devoured list</h2>
+    <hr>
     <!-- Bootstrap list group - basic example for devoured burgers-->
-    <ul class="list-group">
-      {{#each burgers}}
-        {{#if devoured}}
-          {{> burgers/burger-block eating=false}}
-        {{/if}}
-      {{/each}}
-    </ul>
+    <div class="row listCol">
+      <ul class="list-group">
+        {{#each burgers}}
+          {{#if devoured}}
+            {{> burgers/burger-block eating=false}}
+          {{/if}}
+        {{/each}}
+      </ul>
+    </div>
   </div>
     
+  <div class="col-md-1 "> </div>
 </div>
+
+<div class="row burgerForm">
+  <form>
+  <div class="form-group">
+    <input type="text" class="form-control" id="burgerInput" aria-describedby="burgerType">
+    <div class="row justify-content-center">
+    <button id="submitBtn" type="submit" class="btn btn-primary m-2 ">Submit</button>
+    </div>
+    <p class="form-text text-success">Enter a burger you want to eat.  Then click the "submit" button</p>
+</form>
+
+</div>
+
+
   
 

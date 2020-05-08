@@ -1,5 +1,8 @@
  <li >
     <button id="burgerBtn" type="button">{{id}} {{burger_name}} </button>
+    
     <button type="button" class="btn btn-warning btn-sm devourBtn" 
-    data-id="{{id}}" data-burgergone="{{eating}}">Devour it!!</button>
+    data-id="{{id}}" data-burgergone="{{eating}}">
+    {{#if eating}}Devour it!!{{else}}Delete{{/if}}
+    </button>
 </li>

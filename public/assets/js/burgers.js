@@ -1,7 +1,6 @@
 $(function() {
     // Function to update database to change devoured to true
     $(".devourBtn").on("click", function(event) {
-        alert("Devoured it was clicked");
         var id = $(this).data("id");
     var burgerGone = $(this).data("burgergone");
 

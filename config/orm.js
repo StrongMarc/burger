@@ -31,7 +31,6 @@ var orm = {
         queryString, [table, devoured, {id}], function(err, result) {
           if (err) throw err;
           cb(result)
-          console.table(result);
         }
       );
     }
