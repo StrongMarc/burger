@@ -38,7 +38,14 @@ var orm = {
           cb(result)
         }
       );
-    }
+    },
+    deleteOne: function(table, id, cb){
+      var queryString = "DELETE FROM ?? WHERE (?)";
+      connection.query(queryString, {id}, function(err, res){
+        if (err) throw err;
+        cb(result)
+      })
+    },
   };
   
   // Helper function to convert object key/value pairs to SQL syntax

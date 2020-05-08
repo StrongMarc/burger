@@ -39,5 +39,16 @@ router.get("/", function(req, res) {
     // console.log(result)
   });
 });
+
+router.delete("/api/burgers/:id", function(req, res) {
+  var condition = "id = " + req.params.id;
+
+  console.log("yep");
+  cat.delete(condition, function(result){
+    
+      res.status(200).end();
+    
+  })
+});
   
   module.exports = router;

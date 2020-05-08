@@ -50,4 +50,21 @@ $(function() {
     );
   });
 
+  // EventHandler to delete a burger
+  $("#submitBtn").on("click", function(event) {
+    event.preventDefault();
+
+    // Send the POST request.
+    $.ajax("/api/burgers/"+ $(this).data('id'), {
+      type: "DELETE",
+      data: addDaBurger
+    }).then(
+      function() {
+        console.log("deleted burger #" + id);
+        // Reload the page to get the updated list
+        location.reload();
+      }
+    );
+  });
+
 });
