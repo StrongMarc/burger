@@ -36,9 +36,7 @@ $(function() {
       name: $("#burgerInput").val().trim(),
       devoured: eat
     };
-    alert(addDaBurger)
-    console.log(addDaBurger)
-    setTimeout(function(){ alert("Hello"); }, 3000);
+
     // Send the POST request.
     $.ajax("/api/burgers/", {
       type: "POST",
