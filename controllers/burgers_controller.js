@@ -19,7 +19,7 @@ router.get("/", function(req, res) {
     var condition = "id = " + req.params.id;
 
     console.log("condition", condition);
-   console.log({devoured: req.body.devoured})
+    
     // arguemnts are object, string, callback
     burger.updateOne({devoured: req.body.devoured}, condition, function(result) {
       if (result.changedRows == 0) {
@@ -41,10 +41,9 @@ router.get("/", function(req, res) {
 });
 
 router.delete("/api/burgers/:id", function(req, res) {
-  var condition = "id = " + req.params.id;
-
-  console.log("yep");
-  cat.delete(condition, function(result){
+  var condition = req.params.id;
+  // condition is string
+  burger.deleteOne(condition, function(result){
     
       res.status(200).end();
     

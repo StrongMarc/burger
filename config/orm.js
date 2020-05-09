@@ -13,18 +13,14 @@ var orm = {
     // insertOne: function(table, name, devoured, cb) {
     insertOne: function(table, name, cb) {
       // devoured is default to false, argument not needed
-      // name.toString()
-      // console.log(name)
-      
       var queryString = "INSERT INTO ?? (burger_name) VALUES (?)";
-      console.log(queryString);
+      
       connection.query(queryString, [table, name], function(err, result) {
         if (err) throw err;
           cb(result)
       });
     },
     updateOne: function(table, devoured, id, cb) {
-      console.log(id)
       var queryString = "UPDATE " + table;
 
       queryString += " SET ";
@@ -40,8 +36,8 @@ var orm = {
       );
     },
     deleteOne: function(table, id, cb){
-      var queryString = "DELETE FROM ?? WHERE (?)";
-      connection.query(queryString, {id}, function(err, res){
+      var queryString = "DELETE FROM ?? WHERE id = ?";
+      connection.query(queryString, [table, id], function(err, result){
         if (err) throw err;
         cb(result)
       })

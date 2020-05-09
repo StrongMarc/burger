@@ -19,7 +19,7 @@ var burger = {
         });
     },
     deleteOne: function(id, cb){
-        orm.updateOne("burgers", id, function(res) {
+        orm.deleteOne("burgers", id, function(res) {
             cb(res);
         });
     }
